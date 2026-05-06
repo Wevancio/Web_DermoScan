@@ -1,0 +1,319 @@
+/* --- Estilos Globales y Paleta de Colores --- */
+:root {
+    --magenta-principal: #6a1b9a; /* Púrpura de los iconos y botones */
+    --magenta-claro: #9c27b0;
+    --turquesa-principal: #00bcd4; /* Azul/Turquesa del logo y destacados */
+    --cian-fondo: #e0f7fa;     /* Fondo muy claro */
+    --blanco: #ffffff;
+    --texto-oscuro: #333333;
+    --texto-claro: #666666;
+    
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    background-color: var(--cian-fondo);
+    overflow-x: hidden; /* Evita scroll horizontal por las ondas */
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--magenta-principal);
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--texto-claro);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Marcadores de posición para Imágenes (Borrar cuando tengas las imágenes reales) --- */
+.placeholder-img {
+    background-color: #ddd;
+    border: 2px dashed #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    text-align: center;
+    border-radius: 10px;
+    font-style: italic;
+    padding: 20px;
+}
+
+.chica-phone { height: 400px; width: 100%; }
+.robot-grande { height: 350px; width: 100%; }
+.qr-code { height: 200px; width: 200px; margin: 0 auto 30px; border-radius: 15px; background: white;}
+.placeholder-logo { color: white; border: 1px dashed white; padding: 5px 15px; font-size: 0.8rem;}
+
+/* --- Utilidades --- */
+.texto-centrado { text-align: center; }
+.blanco { color: var(--blanco) !important; }
+.destacado { color: var(--magenta-claro); font-weight: bold; }
+.separador { height: 4px; width: 60px; background-color: var(--magenta-principal); margin: 0 auto 20px; border-radius: 2px; }
+.separador.blanco { background-color: var(--blanco); }
+
+/* --- Grillas --- */
+.grid-dos-cols, .grid-tres-cols, .grid-cuatro-cols { display: grid; gap: 30px; }
+@media (min-width: 768px) {
+    .grid-dos-cols { grid-template-columns: 1fr 1fr; }
+    .grid-tres-cols { grid-template-columns: repeat(3, 1fr); }
+    .grid-cuatro-cols { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* --- Botones --- */
+.btn-principal, .btn-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.btn-principal {
+    background-color: var(--magenta-principal);
+    color: var(--blanco);
+    border: 2px solid var(--magenta-principal);
+}
+
+.btn-principal:hover {
+    background-color: transparent;
+    color: var(--magenta-principal);
+}
+
+.btn-cta {
+    background-color: var(--turquesa-principal);
+    color: var(--blanco);
+}
+
+.btn-cta:hover {
+    background-color: var(--blanco);
+    color: var(--turquesa-principal);
+}
+
+/* --- Header / Navegación --- */
+header {
+    background-color: var(--blanco);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo .dermo { color: var(--magenta-principal); }
+.logo .scan { color: var(--turquesa-principal); }
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a:not(.btn-cta) {
+    color: var(--magenta-principal);
+    font-weight: 500;
+}
+
+nav a:not(.btn-cta):hover {
+    color: var(--turquesa-principal);
+}
+
+/* --- Sección Hero --- */
+.hero {
+    padding: 150px 0 100px;
+    position: relative;
+    background-color: var(--blanco);
+}
+
+.hero-grid {
+    display: grid;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: var(--magenta-principal);
+}
+
+.hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.hero-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.hero-wave .shape-fill {
+    fill: var(--cian-fondo);
+}
+
+/* --- Secciones Generales --- */
+.seccion-clara {
+    padding: 80px 0;
+    background-color: var(--cian-fondo);
+}
+
+.seccion-oscura {
+    padding: 80px 0;
+    background-color: var(--magenta-principal);
+    color: var(--blanco);
+}
+
+.texto-seccion h2 .scan-text { color: var(--turquesa-principal); }
+
+/* --- El Problema --- */
+.seccion-destacada {
+    padding: 60px 0;
+    background-color: var(--turquesa-principal);
+}
+
+.card-problema {
+    background-color: var(--blanco);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card-problema p {
+    font-size: 1.1rem;
+    color: var(--texto-oscuro);
+}
+
+/* --- ¿Cómo Funciona? --- */
+.pasos-funciona {
+    margin-top: 50px;
+}
+
+.paso-card {
+    background-color: var(--blanco);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.paso-card.destacado {
+    border-color: var(--magenta-claro);
+    transform: scale(1.05);
+}
+
+.icono-paso {
+    color: var(--magenta-principal);
+    margin-bottom: 20px;
+}
+
+.icono-paso .material-symbols-outlined {
+    font-size: 3rem;
+}
+
+/* --- Beneficios --- */
+.beneficios-grid {
+    margin-top: 50px;
+}
+
+.beneficio-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.icono-beneficio {
+    font-size: 3.5rem;
+    color: var(--blanco);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.beneficio-item h3 {
+    color: var(--blanco);
+    font-size: 1.3rem;
+}
+
+.beneficio-item p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* --- Sección CTA --- */
+.seccion-cta {
+    padding: 100px 0;
+}
+
+.datos-contacto {
+    font-size: 1.2rem;
+    color: var(--magenta-principal);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--magenta-principal);
+    padding: 30px 0;
+    color: var(--blanco);
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+    .hero-text h1 { font-size: 2.2rem; }
+    nav ul { display: none; /* Menú simple para móvil, se puede mejorar con JS */ }
+    .hero-image { display: none; }
+    .grid-dos-cols, .grid-tres-cols, .grid-cuatro-cols { grid-template-columns: 1fr; }
+    .paso-card.destacado { transform: scale(1); margin: 20px 0; }
+}
